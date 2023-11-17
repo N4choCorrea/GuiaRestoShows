@@ -13,7 +13,7 @@ export default function SearchBar() {
   //console.log("autoData = ", autoData);  
  const dataSuggestions =  autoData.filter(item => item.toLowerCase().includes(query.toLowerCase()));
 
-  //const searchBotton = () => {
+ 
 
   const renderSuggestions = ({ item }) => <Text style={styles.suggestionItem}>{item}</Text>;
 
