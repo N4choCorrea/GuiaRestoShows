@@ -10,7 +10,13 @@ export default function RestoCarrousel({navigation}) {
     const {restaurants} = store;
 
     const renderRestaurant = ({item}) => (
-        <CardResto navigation={navigation}  details={item.details} ScreenResto="ScreenResto" name={item.name} imagePath={item.image}/>
+        <CardResto 
+        navigation={navigation}  
+        details={item.details} 
+        ScreenResto="ScreenResto" 
+        name={item.name} 
+        imagePath={item.image} 
+        menu={item.menu}/>
       );
 
       return (

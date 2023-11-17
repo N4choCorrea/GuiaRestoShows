@@ -2,10 +2,10 @@ import React from 'react';
 import { TouchableOpacity, Image, StyleSheet } from 'react-native';
 
 
-const CardResto = ({ navigation, ScreenResto, imagePath, name, details }) => {
+const CardResto = ({ navigation, ScreenResto, imagePath, name, details, menu }) => {
     return (
       <TouchableOpacity
-        onPress={() => navigation.navigate(ScreenResto, { imagePath, name, details })}
+        onPress={() => navigation.navigate(ScreenResto, { imagePath, name, details ,menu})}
         style={styles.card}
       >
         <Image source={imagePath} style={styles.image} />
