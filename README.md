@@ -9,6 +9,7 @@
 2) Versión Compatible de Node para React Native:
 2.1: Verifique la versión de Node requerida para su proyecto React Native utilizando el comando "node -v". Si ya tiene la versión correcta (en este caso, v17.9.1), continúe con el paso 3. Si no tiene la versión necesaria, 
 siga leyendo el paso 2 para obtener información sobre cómo instalar y gestionar la versión 17.9.1 de Node.
+
 2.2: Si la versión necesaria no está instalada, procedemos con los siguientes pasos:
 Instalamos la versión requerida mediante el siguiente comando:
 nvm install 17.9.1
@@ -19,13 +20,17 @@ nvm use 17.9.1
 3.1 Para poder ejecutar la aplicación en nuestro dispositivo móvil debemos de instalar el expo cli en nuestra carpeta clonada
 Puedes instalar Expo CLI globalmente utilizando el siguiente comando:
 npm install -g expo-cli
+
 3.2 Instalar dependencias: Desde el directorio de la aplicación, ejecutar el siguiente comando para instalar las dependencias del proyecto:
 npm install
+
 3.3 Instalacion del navigation: este proyecto utiliza la biblioteca de navegación específica React Navigation, enotnces debemos de instalar la bilbiotecas
 npm install @react-navigation/native
 npm install @react-navigation/stack
+
 3.4 La apicación también aplica el uso de la libreria React Native Maps, entonces debemos de instalarla de la siguiente manera:
 npm install react-native-maps
+
 3.5 Ahora podremos ejecutar la aplcacion desde la terminal con el comando: 
 expo start
 Para luego escanear el codigo con la aplicación que descargaremos en nuestro móvil; Expo Go
