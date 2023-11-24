@@ -1,15 +1,11 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, FlatList, TextInput,SafeAreaView, Button } from 'react-native';
 import React from 'react';
-import SearchBar from './components/SearchBar';
-import RestoCarrousel from './components/RestoCarrousel';
-import ShowCarrousel from './components/ShowCarrousel';
 import ScreenResto from './components/ScreenResto';
 import ScreenShow from './components/ScreenShow';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import  StoreProvider from './store/StoreProvider'
 import HomeScreen from './components/HomeScreen';
+import GeneralDetailsScreen from './components/GeneralDetailsScreen';
 
 const Stack = createStackNavigator();
 export default function App() {
@@ -21,6 +17,7 @@ export default function App() {
         <Stack.Screen name="Home" component={HomeScreen} />
          <Stack.Screen name="ScreenResto" component={ScreenResto} />
          <Stack.Screen name="ScreenShow" component={ScreenShow} />
+          <Stack.Screen name="GeneralDetailsScreen" component={GeneralDetailsScreen} />
       </Stack.Navigator>
     
       </NavigationContainer>
@@ -28,24 +25,6 @@ export default function App() {
   );
 }
 
-// function HomeScreen({navigation }) {
-  
-//   return (
-    
-//     <View style={styles.container}>
-//        <ShowCarrousel navigation={navigation}/> 
-
-      
-//       <SearchBar/>
-
-
-//       <RestoCarrousel navigation={navigation}/>
-
-      
-    
-//     </View>
-//   );
-// }
 
 
 

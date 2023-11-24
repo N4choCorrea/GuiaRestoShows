@@ -13,16 +13,18 @@ const CardResto = ({ navigation, ScreenResto, imagePath, name, details, menu }) 
     );
   };
 
-     const styles = StyleSheet.create({
-        card: {
-            margin: 10,
-            borderRadius: 10,
-            overflow: 'hidden',
-            }, 
-            image: {
-                width: 100,
-                height: 100,
-            },
-        });
+const styles = StyleSheet.create({
+    card: {
+        margin: 10,
+        borderRadius: 10,
+        overflow: 'hidden',
+        width: 150,
+         height: 150,
+        }, 
+        image: {
+          width: '100%',
+          height: '100%',
+          },
+      });
 
 export default CardResto;

@@ -1,28 +1,44 @@
-import { StyleSheet, Text, View, FlatList, TextInput, SafeAreaView, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, FlatList, TextInput, SafeAreaView, TouchableOpacity, Keyboard } from 'react-native';
 import React, { useState } from 'react';
-import {useStore} from '../store/StoreProvider';
+import { useStore } from '../store/StoreProvider';
 
-export default function SearchBar() {
-  
-  const [store,dispatch] =  useStore();
- const {autoData} = store;
+export default function SearchBar({ navigation }) {
+  const [store, dispatch] = useStore();
+  const { restaurants, shows } = store;
 
   const [query, setQuery] = useState('');
   const [showSuggestions, setShowSuggestions] = useState(false);
-  //console.log("store = ", store); 
-  //console.log("autoData = ", autoData);  
- const dataSuggestions =  autoData.filter(item => item.toLowerCase().includes(query.toLowerCase()));
 
- 
+  const dataSuggestions = [...restaurants, ...shows].filter(
+    (item) => item.name.toLowerCase().includes(query.toLowerCase())
+  );
 
-  const renderSuggestions = ({ item }) => <Text style={styles.suggestionItem}>{item}</Text>;
+  const renderSuggestions = ({ item }) => (
+    <TouchableOpacity
+      style={styles.suggestionItem}
+      onPress={() => {
+        Keyboard.dismiss();
+        // Navegar a la pantalla correspondiente según el tipo (restaurant o show)
+        const screenName = item.hasOwnProperty('menu') ? 'ScreenResto' : 'ScreenShow';
+        navigation.navigate(screenName, {
+          imagePath: item.image,
+          name: item.name,
+          details: item.details,
+          menu: item.menu,
+          fechas: item.fechas,
+        });
+      }}
+      >
+      <Text>{item.name}</Text>
+    </TouchableOpacity>
+  );
 
   return (
     <SafeAreaView style={styles.container}>
       <TextInput
         style={styles.input}
-        onChangeText={text => {
-          setQuery(text); 
+        onChangeText={(text) => {
+          setQuery(text);
           setShowSuggestions(text.length >= 3);
         }}
         value={query}
@@ -39,25 +55,25 @@ export default function SearchBar() {
         />
       )}
     </SafeAreaView>
-    
   );
 }
 
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    padding: 16,
     backgroundColor: '#fff',
+    paddingHorizontal: 16,
   },
   input: {
     height: 40,
     borderColor: 'gray',
     borderWidth: 1,
-    marginBottom: 16,
+    marginBottom: 15,
     paddingLeft: 8,
-    borderRadius: 8,
-    width: 100,
+    borderRadius: 5,
+    width: 200,
+  },
+  suggestionList: {
+    marginTop: 5,
   },
   suggestionItem: {
     fontSize: 18,
@@ -65,4 +81,3 @@ const styles = StyleSheet.create({
     color: '#333',
   },
 });
-

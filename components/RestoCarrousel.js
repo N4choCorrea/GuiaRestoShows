@@ -1,5 +1,3 @@
-
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, Image, FlatList, TextInput,SafeAreaView } from 'react-native';
 import CardResto from './CardResto';
 import React from 'react';
@@ -9,7 +7,9 @@ export default function RestoCarrousel({navigation}) {
     const [store,dispatch] = useStore ();
     const {restaurants} = store;
 
-    const renderRestaurant = ({item}) => (
+    const renderRestaurant = ({item}) => {
+      if (item.importance === 1) {
+        return (
         <CardResto 
         navigation={navigation}  
         details={item.details} 
@@ -18,6 +18,9 @@ export default function RestoCarrousel({navigation}) {
         imagePath={item.image} 
         menu={item.menu}/>
       );
+    }
+    return null;
+    }
 
       return (
         <View style={styles.container}>
@@ -30,11 +33,16 @@ export default function RestoCarrousel({navigation}) {
         </View>
         );
         }
-        const styles = StyleSheet.create({
-            container: {
-              flex: 1,
-              backgroundColor: '#fff',
-              alignItems: 'center',
-              justifyContent: 'center',
-            },
-          })
+        
+const styles = StyleSheet.create({
+  container: {
+  marginBottom: 20,
+  backgroundColor: '#F9E4B7',
+  borderRadius: 20, 
+  padding: 5, 
+  marginTop: 10,
+  },
+  flatListContent: {
+  paddingHorizontal: 10,
+  },
+});

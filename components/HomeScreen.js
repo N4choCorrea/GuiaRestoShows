@@ -3,6 +3,8 @@ import { View, StyleSheet } from 'react-native';
 import SearchBar from '../components/SearchBar';
 import RestoCarrousel from '../components/RestoCarrousel';
 import ShowCarrousel from '../components/ShowCarrousel';
+import GeneralButton from './GeneralButton';
+
  function HomeScreen({navigation }) {
   
   return (
@@ -10,8 +12,11 @@ import ShowCarrousel from '../components/ShowCarrousel';
     <View style={styles.container}>
        <ShowCarrousel navigation={navigation}/> 
 
-      
-      <SearchBar/>
+
+      <GeneralButton navigation={navigation}/>
+
+
+      <SearchBar navigation={navigation}/>
 
 
       <RestoCarrousel navigation={navigation}/>
