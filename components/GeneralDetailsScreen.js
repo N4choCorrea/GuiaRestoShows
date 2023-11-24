@@ -16,7 +16,7 @@ const GeneralDetailsScreen = ({ navigation }) => {
       name={item.name}
       details={item.details}
       menu={item.menu}
-      fechas={item.fechas}
+      
     />
   );
 
@@ -27,6 +27,7 @@ const GeneralDetailsScreen = ({ navigation }) => {
       imagePath={item.image}
       name={item.name}
       details={item.details}
+      fechas={item.fechas}
     />
   );
 
