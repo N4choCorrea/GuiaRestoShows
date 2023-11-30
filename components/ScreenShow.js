@@ -12,20 +12,20 @@ const ScreenShow = ({ route }) => {
 
   return (
     <View style={styles.container}>
-      {/* Sección de la imagen */}
+     
       <View style={styles.imageContainer}>
         <Image source={imagePath} style={styles.image} />
       </View>
 
-      {/* Sección de detalles y mapa */}
+      
       <View style={styles.detailsAndMapContainer}>
-        {/* Detalles */}
+        
         <View style={styles.detailsContainer}>
           <Text style={styles.text}>{name}</Text>
           <Text style={styles.text}>{details}</Text>
         </View>
 
-        {/* Mapa */}
+        
         <View style={styles.mapContainer}>
           <MapView
             style={styles.map}
@@ -36,7 +36,7 @@ const ScreenShow = ({ route }) => {
               longitudeDelta: 0.1,
             }}
           >
-            {/* Marcador en la ubicación deseada */}
+           
             <Marker
               coordinate={{ latitude: -34.940625544045474, longitude: -54.934435061549735 }}
               title="Ubicación"
@@ -46,14 +46,14 @@ const ScreenShow = ({ route }) => {
         </View>
       </View>
 
-      {/* Botón para mostrar/ocultar la lista (centrado) */}
+      
       <View style={styles.buttonContainer}>
         <TouchableOpacity onPress={toggleDropdown}>
           <Text>Mostrar fechas</Text>
         </TouchableOpacity>
       </View>
 
-      {/* Lista */}
+      
       {isDropdownVisible && (
         <FlatList
           style={styles.dropdownList}

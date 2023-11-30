@@ -9,7 +9,7 @@ const initialData = initialStore();
 const useStore = () => {
 
   const context = useContext(StoreContext);
-  //console.log("context = ", context);
+  
   if (!context) {
     throw new Error('no usando un provider');
   }

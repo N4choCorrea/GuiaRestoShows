@@ -9,7 +9,7 @@ const initialStore = () => {
         shows: SHOWS_DATA,
         
     };
-    //console.log("store =", store);
+    
     return store;
     
 };
